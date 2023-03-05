@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/styles.css" type="css/test" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
   <title>Specificity Cheatsheet</title>
 </head>
-
 <body>
   <header>
     <h1>Specificity Cheatsheet</h1>
@@ -16,37 +14,63 @@
   <main>
     <article>
       <h2>What is CSS Specificity?</h2>
-      <p>When multiple selectors affect an element specificity provides a way for browsers to render the most appropiate
+      <p>When multiple selectors affect an element, specificity provides a way for browsers to render the most appropiate
         property values. By weighting various types of selectors precedence to the value with the highest ranking.
         Understanding specificity will allow a developer to work effectively with multiple selectors on the same
         element.</p>
+      <p>The following list describes how specificity is calculated:</p>
+      <ol>
+        <li>ID selectors: a selector with an ID is worth 100 points.</li>
+        <li>Class selectors, attribute selectors, and pseudo-classes: each of these selectors is worth 10 points.</li>
+        <li>Element selectors and pseudo-elements: each of these selectors is worth 1 point.</li>
+      </ol>
+      <p>If two selectors have the same specificity, the last one in the CSS document wins.</p>  
     </article>
     <article>
       <h2>Specificity is ranked in descending order by:</h2>
       <table>
         <thead>
           <tr>
-            <th>Selector:</th>
-            <th>Example</th>
+            <th>Selector</th>
+            <th>Specificity Value</th>
           </tr>
         </thead>
         <tr>
-          <td>ID</td>
-          <td>#something {color: red}</td>
+          <td>#my-id</td>
+          <td>100</td>
         </tr>
         <tr>
-          <td>Class</td>
-          <td>.anything {color: blue}</td>
+          <td>.my-class</td>
+          <td>10</td>
         </tr>
         <tr>
-          <td>Type</td>
+          <td>div</td>
+          <td>1</td>
         </tr>
-
+        <tr>
+          <td>#my-id .my-class</td>
+          <td>110</td>
+        </tr>
+        <tr>
+          <td>div.my-class</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>a:hover</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>input[type="text"]</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>body div p strong</td>
+          <td>4</td>
+        </tr>
       </table>
-
     </article>
     <article>
-      <h2>How to Override Specificity</h2>
+      <h2>Overriding Specificity</h2>
       <p>Using !important within the CSS declaration will force that declaration to be used and ignore any others
         regardless of selector specificity. It is generally considered a bad practice to utilize.</p>
     </article>
