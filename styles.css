@@ -18,13 +18,22 @@ table {
     color: white;
   }
 
+  tr {
+    background-color: black;
+    font-family: monospace;
+  }
+
   th, td {
     border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
   }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
+
+/* Code CSS */
+  .code-1 {
+    color: #ea6c8b;
   }
-  
+
+  .code-2 {
+    color: #83fff5;
+  }
